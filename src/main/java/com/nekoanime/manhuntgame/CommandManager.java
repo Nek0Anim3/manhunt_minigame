@@ -15,10 +15,21 @@ public class CommandManager implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
-            Player player = (Player) sender;
+            if (!label.equalsIgnoreCase("manhunt")) {
+                return false;
+            }
+            if (args[0].equalsIgnoreCase("create")) {
 
+                sender.sendMessage("Created lobby");
+                return true;
+            }
+            if (args[0].equalsIgnoreCase("leave")) {
+
+                sender.sendMessage("Leaving lobby");
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 
 }

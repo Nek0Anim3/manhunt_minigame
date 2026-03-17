@@ -2,3 +2,8 @@ name: manhuntgame
 version: '1.0-SNAPSHOT'
 main: com.nekoanime.manhuntgame.Manhuntgame
 api-version: '1.20'
+
+commands:
+  manhunt:
+    description: 'Base command'
+    usage: 'Usage /manhunt create | leave | join'
