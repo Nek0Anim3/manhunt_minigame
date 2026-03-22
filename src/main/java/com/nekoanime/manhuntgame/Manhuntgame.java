@@ -1,20 +1,17 @@
 package com.nekoanime.manhuntgame;
+
+import com.nekoanime.manhuntgame.services.ServiceLocator;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class Manhuntgame extends JavaPlugin {
-    private static Manhuntgame instance;
-
-    public static Manhuntgame getInstance() {
-        return instance;
-    }
+public class Manhuntgame extends JavaPlugin {
+    private ServiceLocator services;
 
     @Override
     public void onEnable() {
-        instance = this;
-
-        CommandManager commandManager = new CommandManager(this);
-        getCommand("manhunt").setExecutor(commandManager);
+        services = new ServiceLocator(this);
     }
 
+
+    public ServiceLocator getServices() {return services;}
 
 }
